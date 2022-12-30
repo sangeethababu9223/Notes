@@ -1,3 +1,4 @@
+const ErrorResponse = require("../utils/errorResponse");
 const Notes = require("../models/Notes");
 // @desc    Get all notes
 // @route   GET api/v1/notes
@@ -24,18 +25,19 @@ exports.getNote = async (req, res, next) => {
   try {
     const note = await Notes.findById(req.params.id);
     if (!note) {
-      return res.status(400).json({
-        success: false,
-      });
+      return next(
+        new ErrorResponse(`Note with id ${req.params.id} not found`, 404)
+      );
     }
     res.status(200).json({
       success: true,
       data: note,
     });
   } catch (err) {
-    res.status(400).json({
-      success: false,
-    });
+    next(new ErrorResponse(`Note with id ${req.params.id} not found`, 404));
+    // res.status(400).json({
+    //   success: false,
+    // });
   }
 };
 
