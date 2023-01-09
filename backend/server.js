@@ -1,4 +1,5 @@
 const express = require("express");
+var cors = require("cors");
 const dotenv = require("dotenv");
 const errorHandler = require("./middleware/error");
 const connectDB = require("./config/db");
@@ -6,6 +7,7 @@ dotenv.config({ path: "./config/config.env" });
 connectDB();
 const notes = require("./routes/notes");
 const app = express();
+app.use(cors());
 app.use(express.json());
 app.use("/api/v1/notes", notes);
 app.use(errorHandler);
