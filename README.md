@@ -4,8 +4,9 @@ Personal & Quick notes Management for user
 
 ## Technologies Used
 
-Frontend - React & Emotion CSS
-Backend - Node.jS, Express, MongoDB
+#### Frontend - React & Emotion CSS
+
+#### Backend - Node.jS, Express, MongoDB
 
 ## Available Scripts
 
