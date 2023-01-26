@@ -20,7 +20,14 @@ const ListNote = () => {
   }, [notes]);
 
   return (
-    <div css={style}>
+    <div
+      css={{
+        backgroundColor: "hotpink",
+        "&:hover": {
+          color: "green",
+        },
+      }}
+    >
       <h1>Notes</h1>
       {notes.map((note, index) => {
         return <DetailNote key={index} note={note} />;
