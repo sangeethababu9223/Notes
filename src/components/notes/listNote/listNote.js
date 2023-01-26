@@ -9,6 +9,7 @@ const ListNote = () => {
   const style = css`
     color: hotpink;
   `;
+  const color = "white";
   useEffect(() => {
     fetch(`http://localhost:5000/api/v1/notes`)
       .then((results) => results.json())
