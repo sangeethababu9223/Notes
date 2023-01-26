@@ -1,15 +1,11 @@
 /** @jsxRuntime classic */
 /** @jsx jsx */
 import { jsx, css } from "@emotion/react";
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import DetailNote from "../detailNote/detailNote";
 import "./listNote.scss";
 const ListNote = () => {
   const [notes, setNotes] = useState([]);
-  const style = css`
-    color: hotpink;
-  `;
-  const color = "white";
   useEffect(() => {
     fetch(`http://localhost:5000/api/v1/notes`)
       .then((results) => results.json())
